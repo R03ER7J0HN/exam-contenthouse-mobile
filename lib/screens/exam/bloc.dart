@@ -21,7 +21,6 @@ class Bloc extends base.Bloc {
   late final Server service;
   late String message;
   late String imageURL;
-  late int count;
 
   @override
   void init() async {
@@ -46,7 +45,6 @@ class Bloc extends base.Bloc {
     );
 
     imageURL = serverResponse.tryGet('image', ifnull: () => "");
-    // count = serverResponse.tryGet('count', ifnull: () => 0);
 
     switch (statusCode) {
       case 200:
