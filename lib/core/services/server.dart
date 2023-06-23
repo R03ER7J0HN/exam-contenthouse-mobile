@@ -17,6 +17,8 @@ class Server {
   final int _key;
   int _count = 0;
 
+  int get count => _count;
+
   Future<int> get accessKey =>
       Future.delayed(const Duration(milliseconds: 800)).then((_) => _key);
 
@@ -34,9 +36,8 @@ class Server {
             "error_message": "Server is busy. Please try again later."
           };
 
-    return Future<Map<String, dynamic>>.delayed(
-      const Duration(milliseconds: 800),
-    ).then((_) => response);
+    return Future.delayed(const Duration(milliseconds: 800))
+        .then((_) => response);
   }
 
   Future<int> addToCount(int value) {
